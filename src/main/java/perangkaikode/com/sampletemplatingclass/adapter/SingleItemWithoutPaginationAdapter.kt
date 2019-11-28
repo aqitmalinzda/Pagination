@@ -41,13 +41,8 @@ class SingleItemWithoutPaginationAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = null
-        var tv2: TextView? = null
-
-        init {
-            tv1 = view.item_1_tv_1
-            tv2 = view.item_1_tv_2
-        }
+        var tv1: TextView? = view.item_1_tv_1
+        var tv2: TextView? = view.item_1_tv_2
 
         fun itemClick(listener: OnClickListener) {
             itemView.setOnClickListener { view ->

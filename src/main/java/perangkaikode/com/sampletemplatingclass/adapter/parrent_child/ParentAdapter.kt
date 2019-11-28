@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter.parrentChild
+package perangkaikode.com.sampletemplatingclass.adapter.parrent_child
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,7 +13,6 @@ import perangkaikode.com.sampletemplatingclass.R
 import perangkaikode.com.sampletemplatingclass.interfaces.OnClickListener
 import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
 import perangkaikode.com.sampletemplatingclass.model.SampleModelParrentChild
-import perangkaikode.com.sampletemplatingclass.util.GlobalVariable
 
 class ParentAdapter(
     private val context: Context,
@@ -87,13 +86,8 @@ class ParentAdapter(
 
     inner class HolderLayout1(view: View) : RecyclerView.ViewHolder(view), OnClickListener {
 
-        var tv1: TextView? = null
-        var rvChild: RecyclerView? = null
-
-        init {
-            tv1 = view.tv_1_parrent
-            rvChild = view.rv_child
-        }
+        var tv1: TextView? = view.tv_1_parrent
+        var rvChild: RecyclerView? = view.rv_child
 
         fun itemClick(listener: OnClickListener) {
             itemView.setOnClickListener { view ->
@@ -120,11 +114,7 @@ class ParentAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = null
-
-        init {
-            progress = view.progressBar1
-        }
+        var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".MainAct">
         </activity>
-        <activity android:name=".PaginationAct">
+        <activity android:name=".sample_pagination.PaginationAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

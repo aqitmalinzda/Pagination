@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter.parrentChild
+package perangkaikode.com.sampletemplatingclass.adapter.parrent_child
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_child.view.*
 import kotlinx.android.synthetic.main.item_parrent.view.*
 import perangkaikode.com.sampletemplatingclass.interfaces.OnClickListener
-import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
 import perangkaikode.com.sampletemplatingclass.model.SampleModelParrentChild
-import perangkaikode.com.sampletemplatingclass.util.GlobalVariable
 
 class ChildAdapter(
     private val context: Context,
@@ -41,13 +40,8 @@ class ChildAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = null
-        var rvChild: RecyclerView? = null
-
-        init {
-            tv1 = view.tv_1_parrent
-            rvChild = view.rv_child
-        }
+        var tv1: TextView? = view.tv_1_child
+        var tv2: TextView? = view.tv_2_child
 
         fun itemClick(listener: OnClickListener) {
             itemView.setOnClickListener { view ->

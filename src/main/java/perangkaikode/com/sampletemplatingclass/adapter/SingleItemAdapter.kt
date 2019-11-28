@@ -82,13 +82,8 @@ class SingleItemAdapter(
 
     inner class HolderLayout1(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = null
-        var tv2: TextView? = null
-
-        init {
-            tv1 = view.item_1_tv_1
-            tv2 = view.item_1_tv_2
-        }
+        var tv1: TextView? = view.item_1_tv_1
+        var tv2: TextView? = view.item_1_tv_2
 
         fun itemClick(listener: OnClickListener) {
             itemView.setOnClickListener { view ->
@@ -104,11 +99,7 @@ class SingleItemAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = null
-
-        init {
-            progress = view.progressBar1
-        }
+        var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

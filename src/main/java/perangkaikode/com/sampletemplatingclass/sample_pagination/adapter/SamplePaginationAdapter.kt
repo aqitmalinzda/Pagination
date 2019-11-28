@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter
+package perangkaikode.com.sampletemplatingclass.sample_pagination.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.progressbar.view.*
 import perangkaikode.com.sampletemplatingclass.R
 import perangkaikode.com.sampletemplatingclass.interfaces.OnTypeClickListener
 import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
-import perangkaikode.com.sampletemplatingclass.model.Student
+import perangkaikode.com.sampletemplatingclass.sample_pagination.model.Student
 
 class SamplePaginationAdapter(
     private val context: Context,
@@ -83,20 +83,19 @@ class SamplePaginationAdapter(
 
     inner class HolderLayout1(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = null
-        var tv2: TextView? = null
-
-        init {
-            tv1 = view.item_1_tv_1
-            tv2 = view.item_1_tv_2
-        }
+        var tv1: TextView? = view.item_1_tv_1
+        var tv2: TextView? = view.item_1_tv_2
 
         fun itemClick(listener: OnTypeClickListener) {
             tv1?.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view, TOMBOL_1)
+                listener.onClick(adapterPosition, view,
+                    TOMBOL_1
+                )
             }
             tv2?.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view, TOMBOL_2)
+                listener.onClick(adapterPosition, view,
+                    TOMBOL_2
+                )
             }
         }
 
@@ -108,11 +107,7 @@ class SamplePaginationAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = null
-
-        init {
-            progress = view.progressBar1
-        }
+        var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

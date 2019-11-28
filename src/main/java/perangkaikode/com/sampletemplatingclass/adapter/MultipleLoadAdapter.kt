@@ -132,11 +132,7 @@ class MultipleLoadAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = null
-
-        init {
-            progress = view.progressBar1
-        }
+        var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {
