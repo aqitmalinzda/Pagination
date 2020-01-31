@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.model
+package perangkaikode.com.sampletemplatingclass.sample_adapter.model
 
 import java.io.Serializable
 

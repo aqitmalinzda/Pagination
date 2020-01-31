@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter.parrent_child
+package perangkaikode.com.sampletemplatingclass.sample_adapter.adapter.parrent_child
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_parrent.view.*
 import kotlinx.android.synthetic.main.progressbar.view.*
 import perangkaikode.com.sampletemplatingclass.R
-import perangkaikode.com.sampletemplatingclass.interfaces.OnClickListener
-import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
-import perangkaikode.com.sampletemplatingclass.model.SampleModelParrentChild
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.OnClickListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.PaginationListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.model.SampleModelParrentChild
 
 class ParentAdapter(
     private val context: Context,
@@ -27,14 +27,6 @@ class ParentAdapter(
 
     lateinit var listener: OnClickListener
     lateinit var pagination: PaginationListener
-
-    fun initOnClick(listener: OnClickListener) {
-        this.listener = listener
-    }
-
-    fun initPagination(pagination: PaginationListener) {
-        this.pagination = pagination
-    }
 
     companion object {
         private val itemLayout1 = 111
@@ -86,12 +78,12 @@ class ParentAdapter(
 
     inner class HolderLayout1(view: View) : RecyclerView.ViewHolder(view), OnClickListener {
 
-        var tv1: TextView? = view.tv_1_parrent
-        var rvChild: RecyclerView? = view.rv_child
+        private var tv1: TextView? = view.tv_1_parrent
+        private var rvChild: RecyclerView? = view.rv_child
 
         fun itemClick(listener: OnClickListener) {
-            itemView.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view)
+            itemView.setOnClickListener {
+                listener.onClick(adapterPosition, it)
             }
         }
 
@@ -103,7 +95,7 @@ class ParentAdapter(
             rvChild?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             listItemsChild = item.items as ArrayList<SampleModelParrentChild.Item>
             adapter = ChildAdapter(context, R.layout.item_child, listItemsChild)
-            adapter!!.initAction(this)
+            adapter!!.listener = this
             rvChild?.adapter = adapter
         }
 
@@ -114,7 +106,7 @@ class ParentAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = view.progressBar1
+        private var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

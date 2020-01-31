@@ -25,7 +25,7 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="E:\Android\Project\Baru\SampleTemplatingClass\app\src\debug\kotlin;E:\Android\Project\Baru\SampleTemplatingClass\app\src\debug\java;E:\Android\Project\Baru\SampleTemplatingClass\app\src\release\kotlin;E:\Android\Project\Baru\SampleTemplatingClass\app\src\release\java;E:\Android\Project\Baru\SampleTemplatingClass\app\src\debugAndroidTest\kotlin;E:\Android\Project\Baru\SampleTemplatingClass\app\src\debugUnitTest\kotlin;E:\Android\Project\Baru\SampleTemplatingClass\app\src\releaseUnitTest\kotlin">
+      <configuration version="3" platform="JVM 1.6" allPlatforms="JVM [1.6]" useProjectSettings="false" pureKotlinSourceFolders="E:\Android\Github\SampleTemplatingClass\app\src\debug\kotlin;E:\Android\Github\SampleTemplatingClass\app\src\debug\java;E:\Android\Github\SampleTemplatingClass\app\src\release\kotlin;E:\Android\Github\SampleTemplatingClass\app\src\release\java;E:\Android\Github\SampleTemplatingClass\app\src\debugAndroidTest\kotlin;E:\Android\Github\SampleTemplatingClass\app\src\debugUnitTest\kotlin;E:\Android\Github\SampleTemplatingClass\app\src\releaseUnitTest\kotlin">
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/debug" />

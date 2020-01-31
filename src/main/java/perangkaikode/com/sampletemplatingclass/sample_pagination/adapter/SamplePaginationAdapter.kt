@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_1.view.*
 import kotlinx.android.synthetic.main.progressbar.view.*
 import perangkaikode.com.sampletemplatingclass.R
-import perangkaikode.com.sampletemplatingclass.interfaces.OnTypeClickListener
-import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.OnTypeClickListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.PaginationListener
 import perangkaikode.com.sampletemplatingclass.sample_pagination.model.Student
 
 class SamplePaginationAdapter(
@@ -23,14 +23,6 @@ class SamplePaginationAdapter(
 
     lateinit var listener: OnTypeClickListener
     lateinit var pagination: PaginationListener
-
-    fun initOnClick(listener: OnTypeClickListener) {
-        this.listener = listener
-    }
-
-    fun initPagination(pagination: PaginationListener) {
-        this.pagination = pagination
-    }
 
     companion object {
         private val itemLayout1 = 1
@@ -83,19 +75,15 @@ class SamplePaginationAdapter(
 
     inner class HolderLayout1(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = view.item_1_tv_1
-        var tv2: TextView? = view.item_1_tv_2
+        private var tv1: TextView? = view.item_1_tv_1
+        private var tv2: TextView? = view.item_1_tv_2
 
         fun itemClick(listener: OnTypeClickListener) {
-            tv1?.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view,
-                    TOMBOL_1
-                )
+            tv1?.setOnClickListener {
+                listener.onClick(adapterPosition, it, TOMBOL_1)
             }
-            tv2?.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view,
-                    TOMBOL_2
-                )
+            tv2?.setOnClickListener {
+                listener.onClick(adapterPosition, it, TOMBOL_2)
             }
         }
 
@@ -107,7 +95,7 @@ class SamplePaginationAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = view.progressBar1
+        private var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

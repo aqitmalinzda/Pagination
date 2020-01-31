@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter
+package perangkaikode.com.sampletemplatingclass.sample_adapter.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_1.view.*
 import kotlinx.android.synthetic.main.progressbar.view.*
 import perangkaikode.com.sampletemplatingclass.R
-import perangkaikode.com.sampletemplatingclass.interfaces.OnClickListener
-import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
-import perangkaikode.com.sampletemplatingclass.model.SampleModel
-import perangkaikode.com.sampletemplatingclass.util.GlobalVariable
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.OnClickListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.PaginationListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.model.SampleModel
 
 class SingleItemAdapter(
     private val context: Context,
@@ -24,14 +23,6 @@ class SingleItemAdapter(
 
     lateinit var listener: OnClickListener
     lateinit var pagination: PaginationListener
-
-    fun initOnClick(listener: OnClickListener) {
-        this.listener = listener
-    }
-
-    fun initPagination(pagination: PaginationListener) {
-        this.pagination = pagination
-    }
 
     companion object {
         private val itemLayout1 = 1
@@ -82,12 +73,12 @@ class SingleItemAdapter(
 
     inner class HolderLayout1(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = view.item_1_tv_1
-        var tv2: TextView? = view.item_1_tv_2
+        private var tv1: TextView? = view.item_1_tv_1
+        private var tv2: TextView? = view.item_1_tv_2
 
         fun itemClick(listener: OnClickListener) {
-            itemView.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view)
+            itemView.setOnClickListener {
+                listener.onClick(adapterPosition, it)
             }
         }
 
@@ -99,7 +90,7 @@ class SingleItemAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = view.progressBar1
+        private var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

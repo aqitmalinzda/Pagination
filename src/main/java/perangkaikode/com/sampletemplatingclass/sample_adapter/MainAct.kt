@@ -1,7 +1,8 @@
-package perangkaikode.com.sampletemplatingclass
+package perangkaikode.com.sampletemplatingclass.sample_adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import perangkaikode.com.sampletemplatingclass.R
 
 class MainAct : AppCompatActivity() {
 

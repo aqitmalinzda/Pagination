@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.interfaces
+package perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces
 
 import android.view.View
 

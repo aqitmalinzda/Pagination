@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter
+package perangkaikode.com.sampletemplatingclass.sample_adapter.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,10 +10,9 @@ import kotlinx.android.synthetic.main.item_1.view.*
 import kotlinx.android.synthetic.main.item_2.view.*
 import kotlinx.android.synthetic.main.progressbar.view.*
 import perangkaikode.com.sampletemplatingclass.R
-import perangkaikode.com.sampletemplatingclass.interfaces.OnTypeClickListener
-import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
-import perangkaikode.com.sampletemplatingclass.model.SampleModel
-import perangkaikode.com.sampletemplatingclass.util.GlobalVariable
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.OnTypeClickListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.PaginationListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.model.SampleModel
 
 class MultipleLoadAdapter(
     private val context: Context,
@@ -28,19 +27,11 @@ class MultipleLoadAdapter(
     lateinit var listener: OnTypeClickListener
     lateinit var pagination: PaginationListener
 
-    fun initOnClick(listener: OnTypeClickListener) {
-        this.listener = listener
-    }
-
-    fun initPagination(pagination: PaginationListener) {
-        this.pagination = pagination
-    }
-
     companion object {
         private val itemLayout1 = 111
         private val itemLayoutLoading = 222
-        var loadType1 = 1
-        var loadType2 = 2
+        private var loadType1 = 1
+        private var loadType2 = 2
         const val TOMBOL_1 = 11
         const val TOMBOL_2 = 22
     }
@@ -89,8 +80,8 @@ class MultipleLoadAdapter(
 
     inner class HolderLayout1(loadWhat: Int, view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = null
-        var tv2: TextView? = null
+        private var tv1: TextView? = null
+        private var tv2: TextView? = null
 
         init {
             when (loadWhat) {
@@ -107,11 +98,11 @@ class MultipleLoadAdapter(
         }
 
         fun itemClick(loadWhat: Int, listener: OnTypeClickListener) {
-            tv1?.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view, TOMBOL_1)
+            tv1?.setOnClickListener {
+                listener.onClick(adapterPosition, it, TOMBOL_1)
             }
-            tv2?.setOnClickListener { view ->
-                listener.onClick(adapterPosition, view, TOMBOL_2)
+            tv2?.setOnClickListener {
+                listener.onClick(adapterPosition, it, TOMBOL_2)
             }
         }
 
@@ -132,7 +123,7 @@ class MultipleLoadAdapter(
 
     inner class HolderLayout2(view: View) : RecyclerView.ViewHolder(view) {
 
-        var progress: View? = view.progressBar1
+        private var progress: View? = view.progressBar1
 
         fun bindView() {
             if (isLoading && positions == itemCount) {

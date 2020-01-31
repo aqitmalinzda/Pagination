@@ -1,4 +1,4 @@
-package perangkaikode.com.sampletemplatingclass.adapter
+package perangkaikode.com.sampletemplatingclass.sample_adapter.adapter.parrent_child
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,23 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_1.view.*
-import perangkaikode.com.sampletemplatingclass.interfaces.OnClickListener
-import perangkaikode.com.sampletemplatingclass.interfaces.PaginationListener
-import perangkaikode.com.sampletemplatingclass.model.SampleModel
-import perangkaikode.com.sampletemplatingclass.util.GlobalVariable
+import kotlinx.android.synthetic.main.item_child.view.*
+import perangkaikode.com.sampletemplatingclass.sample_adapter.interfaces.OnClickListener
+import perangkaikode.com.sampletemplatingclass.sample_adapter.model.SampleModelParrentChild
 
-class SingleItemWithoutPaginationAdapter(
+class ChildAdapter(
     private val context: Context,
     private var layout: Int,
-    private var listItems: List<SampleModel>
-) : RecyclerView.Adapter<SingleItemWithoutPaginationAdapter.ViewHolder>() {
+    private var listItems: List<SampleModelParrentChild.Item>
+) : RecyclerView.Adapter<ChildAdapter.ViewHolder>() {
 
     lateinit var listener: OnClickListener
-
-    fun initOnClick(listener: OnClickListener) {
-        this.listener = listener
-    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(layout, viewGroup, false)
@@ -41,8 +35,8 @@ class SingleItemWithoutPaginationAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        var tv1: TextView? = view.item_1_tv_1
-        var tv2: TextView? = view.item_1_tv_2
+        private var tv1: TextView? = view.tv_1_child
+        private var tv2: TextView? = view.tv_2_child
 
         fun itemClick(listener: OnClickListener) {
             itemView.setOnClickListener { view ->
@@ -50,9 +44,8 @@ class SingleItemWithoutPaginationAdapter(
             }
         }
 
-        fun bindView(item: SampleModel) {
+        fun bindView(item: SampleModelParrentChild.Item) {
             tv1?.text = ""
-//            tv2?.text = item.tv1
         }
     }
 }
